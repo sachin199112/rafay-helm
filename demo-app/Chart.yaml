@@ -7,7 +7,7 @@ version: 0.1.0
 dependencies:
   - name: mongodb
     condition: mongodb.enabled
-    repository: file:///home/sachin/kubenetes/workshop/demo-app/charts/mongodb
+    repository: https://github.com/sachin199112/rafay-helm/tree/main/demo-app/charts/mongodb
     version: 0.1.0
     import-values:
       - data
@@ -17,5 +17,5 @@ dependencies:
     version: "0.1.0"
   - name: nginxapp
     condition: nginxapp.enabled
-    repository: "file://../charts/nginxapp"
+    repository: https://github.com/sachin199112/rafay-helm/tree/main/demo-app/charts/nginxapp
     version: "0.1.0"

@@ -1,0 +1,19 @@
+enabled: false
+name: mongodb
+replicas: 1
+
+targetports: 27017
+ports: 80
+image:
+  repository: mongo
+  tag: 3.6.17-xenial
+storagename: storage
+storagepath: /data/db
+servicetype: LoadBalancer
+claimname: mongo-pvc
+storagesize: 256Mi
+exports:
+  data:
+    global:
+      mongopodname: mongodb-pod
+      servicename: mongodb

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+        - name: {{ .Values.global.mongopodname }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag}}
+          ports:
+            - containerPort: {{ .Values.targetports }}
+          volumeMounts:
+            - name: {{ .Values.storagename }}
+              mountPath: {{ .Values.storagepath }}
+      volumes:
+        - name: {{ .Values.storagename }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.claimname }}

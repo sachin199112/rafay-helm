@@ -1,0 +1,12 @@
+enabled: false
+name: knote
+replicas: 1
+podname: knote-pod
+targetports: 3000
+ports: 80
+image:
+  repository: learnk8s/knote-js
+  tag: 1.0.0
+envname: MONGO_URL
+envvalue: mongodb://mongo:27017/dev
+servicetype: LoadBalancer

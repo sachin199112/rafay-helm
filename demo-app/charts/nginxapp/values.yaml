@@ -1,0 +1,11 @@
+enabled: false
+name: mynginxapp
+appname: myapp
+servicename: nginxservice
+replicas: 1
+podname: nginx-pod
+ports: 80
+image:
+  repository: nginx
+  tag: latest
+servicetype: LoadBalancer

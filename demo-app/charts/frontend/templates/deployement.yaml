@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+        - name: {{ .Values.podname }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag}}
+          ports:
+            - containerPort: {{ .Values.targetports }}
+          env:
+            - name: {{ .Values.envname }}
+              value: mongodb://{{ .Values.global.servicename }}:27017/dev
+          imagePullPolicy: Always

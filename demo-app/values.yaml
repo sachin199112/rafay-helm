@@ -1,0 +1,42 @@
+mongodb:
+  enabled: true
+  name: mongodb
+  replicas: 1
+  targetports: 27017
+  ports: 80
+  image:
+    repository: mongo
+    tag: 3.6.17-xenial
+  storagename: storage
+  storagepath: /data/db
+  servicetype: LoadBalancer
+  claimname: mongo-pvc
+  storagesize: 256Mi
+  
+
+frontend:
+  enabled: true
+  name: knote
+  replicas: 1
+  podname: knote-pod
+  targetports: 3000
+  ports: 80
+  image:
+    repository: learnk8s/knote-js
+    tag: 1.0.0
+  envname: MONGO_URL
+  
+  servicetype: LoadBalancer
+
+nginxapp:
+  enabled: true
+  name: mynginxapp
+  servicename: nginxservice
+  appname: myapp
+  replicas: 1
+  podname: nginx-pod
+  ports: 80
+  image:
+    repository: nginx
+    tag: latest
+  servicetype: LoadBalancer

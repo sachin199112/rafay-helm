@@ -11,10 +11,10 @@ version: 0.1.0
  #   version: 0.1.0
  #   import-values:
  #     - data
- # - name: frontend
- #   condition: frontend.enabled
- #   repository: https://github.com/sachin199112/rafay-helm/tree/main/demo-app/charts/frontend
- #   version: "0.1.0"
+  - name: frontend
+    condition: frontend.enabled
+    repository: https://github.com/sachin199112/rafay-helm/tree/main/demo-app/charts/frontend
+    version: "0.1.0"
  # - name: nginxapp
  #   condition: nginxapp.enabled
  #   repository: "file://../charts/nginxapp"

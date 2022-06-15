@@ -33,7 +33,7 @@ nginxapp:
   name: mynginxapp
   servicename: nginxservice
   appname: myapp
-  replicas: 1
+  replicas: 2
   podname: nginx-pod
   ports: 80
   image:
